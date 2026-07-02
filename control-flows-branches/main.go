@@ -10,7 +10,6 @@ func main() {
 		name  string
 		score int
 	}
-
 	scores := []score{
 		{name: "Chapman, Luke", score: 87},
 		{name: "Smith, John", score: 85},
@@ -24,14 +23,25 @@ func main() {
 	fmt.Println("Student Scores")
 	fmt.Println(strings.Repeat("-", 17))
 	var index int
-	if option == "1" { // use strconv package if using on something like a website
+	//if option == "1" { // use strconv package if using on something like a website
+	//	index = 0
+	//} else if option == "2" {
+	//	index = 1
+	//} else if option == "3" {
+	//	index = 2
+	//} else {
+	//	fmt.Println("Unknown Option, defaulting to 1")
+	//	index = 0
+	//}
+	switch option {
+	case "1":
 		index = 0
-	} else if option == "2" {
+	case "2":
 		index = 1
-	} else if option == "3" {
+	case "3":
 		index = 2
-	} else {
-		fmt.Println("Unknown Option, defaulting to 1")
+	default:
+		fmt.Println("Unknown value, defaulting to 1")
 		index = 0
 	}
 	fmt.Println(scores[index].name, scores[index].score)
