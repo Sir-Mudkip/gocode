@@ -1,0 +1,7 @@
+rules:
+- id: 01-error-channel-create
+  pattern: |
+    errorCh := make(...)
+  message: Semgrep found a match
+  languages: [go]
+  severity: WARNING

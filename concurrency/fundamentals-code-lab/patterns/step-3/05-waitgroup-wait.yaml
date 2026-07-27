@@ -1,0 +1,7 @@
+rules:
+- id: 05-waitgroup-wait
+  pattern: |
+            wg.Wait()
+  message: Semgrep found a match
+  languages: [go]
+  severity: WARNING

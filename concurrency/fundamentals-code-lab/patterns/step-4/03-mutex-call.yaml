@@ -1,0 +1,7 @@
+rules:
+  - id: 03-mutex-call
+    pattern: |
+      calculateRegionSales(salesRegion, &totalSales, &wg, &mu)
+    message: Semgrep found a match
+    languages: [go]
+    severity: WARNING

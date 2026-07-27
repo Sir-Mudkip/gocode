@@ -1,0 +1,9 @@
+rules:
+  - id: 04-channels-total
+    pattern: |
+      for i := 0; i < len(salesData); i++ {
+         totalSales += <-salesCh
+      }
+    message: Semgrep found a match
+    languages: [go]
+    severity: WARNING   

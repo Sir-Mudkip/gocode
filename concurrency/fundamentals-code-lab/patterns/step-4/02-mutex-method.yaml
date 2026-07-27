@@ -1,0 +1,21 @@
+rules:
+  - id: 02-mutex-method
+    pattern: |
+      func calculateRegionSales(salesRegion []int, totalSales *int, wg *sync.WaitGroup, mu *sync.Mutex) {
+        defer wg.Done()
+
+        regionTotal := 0
+        for _, storeSales := range salesRegion {
+          // Calculate region total
+          regionTotal += storeSales
+          time.Sleep(100 * time.Millisecond)
+        }
+
+        // Post Calculation of regionTotal
+        mu.Lock() // Lock before updating totalSales
+        *totalSales += regionTotal
+        mu.Unlock() // Unlock after updating
+      }
+    message: Semgrep found a match
+    languages: [go]
+    severity: WARNING

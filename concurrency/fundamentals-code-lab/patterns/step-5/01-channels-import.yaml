@@ -1,0 +1,12 @@
+rules:
+- id: 01-channels-import
+  pattern: |
+   import (
+      "fmt"
+      // Step 3,4 - Import
+      //"sync"
+      "time"
+   )
+  message: Semgrep found a match
+  languages: [go]
+  severity: WARNING

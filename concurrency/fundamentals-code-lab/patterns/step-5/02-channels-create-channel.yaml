@@ -1,0 +1,7 @@
+rules:
+  - id: 02-channels-create-channel
+    patterns:
+      - pattern-regex: 'salesCh := make(...)'
+    message: Semgrep found a match
+    languages: [go]
+    severity: WARNING

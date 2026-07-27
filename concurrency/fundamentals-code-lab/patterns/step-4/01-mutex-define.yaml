@@ -1,0 +1,8 @@
+rules:
+- id: 02-waitgroup-define
+  pattern: |
+    // Mutex to synchronize access to totalSales
+    var mu sync.Mutex
+  message: Semgrep found a match
+  languages: [go]
+  severity: WARNING

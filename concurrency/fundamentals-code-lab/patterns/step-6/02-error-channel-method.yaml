@@ -1,0 +1,19 @@
+rules:
+- id: 02-error-channel-method
+  pattern: |
+   func calculateRegionSales(salesRegion []int,...){
+    regionTotal := 0
+    for _, storeSales := range salesRegion {
+         
+         if storeSales < 0 {
+            errorCh <- fmt.Errorf("SKIPPED REGION! Found store with sale value [%d] less than 0. Please recheck data for region", storeSales)
+            return
+         }
+         regionTotal += storeSales
+         time.Sleep(100 * time.Millisecond)
+      }
+    salesCh <- regionTotal
+   }
+  message: Semgrep found a match
+  languages: [go]
+  severity: WARNING

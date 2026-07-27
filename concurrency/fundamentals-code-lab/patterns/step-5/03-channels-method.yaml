@@ -1,0 +1,16 @@
+rules:
+  - id: 03-channels-method1
+    pattern: |
+      func calculateRegionSales(salesRegion []int, ...) {
+        regionTotal := 0
+        for _, storeSales := range salesRegion {
+          // Calculate region total
+          regionTotal += storeSales
+          time.Sleep(100 * time.Millisecond)
+        }
+        // Post Calculation of regionTotal
+        salesCh <- regionTotal
+      }
+    message: Semgrep found a match
+    languages: [go]
+    severity: WARNING

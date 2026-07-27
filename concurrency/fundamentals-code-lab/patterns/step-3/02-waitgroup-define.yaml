@@ -1,0 +1,8 @@
+rules:
+- id: 02-waitgroup-define
+  pattern: |
+      var wg sync.WaitGroup
+      wg.Add(len(salesData))
+  message: Semgrep found a match
+  languages: [go]
+  severity: WARNING

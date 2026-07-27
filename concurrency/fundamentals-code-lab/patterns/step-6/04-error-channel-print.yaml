@@ -1,0 +1,17 @@
+rules:
+  - id: 04-error-channel-print
+    pattern: |
+      for i := 0; i < len(salesData); i++ {
+          select {
+          case total := <-salesCh:
+              totalSales += total
+          case err := <-errorCh:
+              fmt.Printf("Error: %v\n", err)
+          case <-time.After(3000 * time.Millisecond):
+              fmt.Println("Timeout occurred while waiting for sales data")
+              return
+          }
+      }
+    message: Semgrep found a match
+    languages: [go]
+    severity: WARNING

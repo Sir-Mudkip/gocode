@@ -1,0 +1,7 @@
+rules:
+- id: 04-waitgroup-call
+  pattern: |
+            go calculateRegionSales(salesRegion, &totalSales, &wg)
+  message: Semgrep found a match
+  languages: [go]
+  severity: WARNING

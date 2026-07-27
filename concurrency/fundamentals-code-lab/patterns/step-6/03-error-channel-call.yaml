@@ -1,0 +1,7 @@
+rules:
+  - id: 03-error-channel-call
+    pattern: |
+       go calculateRegionSales(salesRegion, salesCh, errorCh)
+    message: Semgrep found a match
+    languages: [go]
+    severity: WARNING
